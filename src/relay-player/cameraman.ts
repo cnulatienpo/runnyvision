@@ -6,7 +6,7 @@ import { HoleData, CameraState, CameraMode } from './types';
  */
 
 export const SPEED_MIN = 0.002;
-export const SPEED_MAX = 0.03;
+export const SPEED_MAX = 0.2;
 export const SPEED_DEFAULT = 0.01;
 
 // Scale threshold at which we consider Frame B to fill the viewport

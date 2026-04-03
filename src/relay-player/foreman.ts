@@ -15,7 +15,7 @@ export function loadImage(src: string): Promise<HTMLImageElement> {
 }
 
 export function getAssetPath(filename: string, basePath: string = '/relay-assets/'): string {
-  if (filename.startsWith('http://') || filename.startsWith('https://')) {
+  if (filename.startsWith('http://') || filename.startsWith('https://') || filename.startsWith('/')) {
     return filename;
   }
   return `${basePath}${filename}`;

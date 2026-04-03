@@ -1,10 +1,15 @@
 import { RelayConfig } from './types';
+import pngPaths from 'virtual:png-list';
 
-const frameCount = 108;
-const frames = Array.from({ length: frameCount }, (_, i) => ({
-  src: `/pngs/f_${String(i).padStart(4, '0')}.png`,
-  mode: 'straight' as const,
-}));
+const allSrcs = [...(pngPaths as string[])];
+
+// Fisher-Yates shuffle
+for (let i = allSrcs.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [allSrcs[i], allSrcs[j]] = [allSrcs[j], allSrcs[i]];
+}
+
+const frames = allSrcs.map(src => ({ src, mode: 'straight' as const }));
 
 export const defaultConfig: RelayConfig = {
   frames,
