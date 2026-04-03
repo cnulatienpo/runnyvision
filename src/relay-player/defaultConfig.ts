@@ -1,10 +1,12 @@
 import { RelayConfig } from './types';
 
-// Default config — will use placeholder images until user uploads real ones
+const frameCount = 108;
+const frames = Array.from({ length: frameCount }, (_, i) => ({
+  src: `/pngs/f_${String(i).padStart(4, '0')}.png`,
+  mode: 'straight' as const,
+}));
+
 export const defaultConfig: RelayConfig = {
-  frames: [
-    { src: 'frame_a.png', mode: 'straight' },
-    { src: 'frame_b.png', mode: 'straight' },
-  ],
+  frames,
   speed: 0.01,
 };
